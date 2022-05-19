@@ -1,7 +1,7 @@
 import Image from 'next/image'
-// import DropdownBtn from './buttons/dropDownBtn'
+import DropdownBtn from './buttons/dropDownBtn'
 import Rate from './cmc-table/rate'
-// import RateFilled from './buttons/rateFilled'
+import RateFilled from './buttons/rateFilled'
 import btc from '../assets/btc.png'
 import eth from '../assets/eth.png'
 import usdc from '../assets/usdc.png'
@@ -12,7 +12,7 @@ import tera from '../assets/tera.png'
 import solana from '../assets/solana.png'
 import avalanche from '../assets/avalanche.png'
 import bnb from '../assets/bnb.png'
-import { useMoralis } from 'react-moralis'
+// import { useMoralis } from 'react-moralis'
 
 const styles = {
     coinDetails: `min-h-screen text-white`,
@@ -200,7 +200,7 @@ const CoinDetails = ({ coinName, coinSymbol, price }) => {
                 </p>
                 <div className='flex my-3'>
                   <h1 className='text-4xl'>${price}</h1>
-                  {/* <RateFilled /> */}
+                  <RateFilled />
                 </div>
                 <div className='flex items-start'>
                   <p className='text-gray-400'> 15.26 ETH</p>
@@ -215,10 +215,10 @@ const CoinDetails = ({ coinName, coinSymbol, price }) => {
               </div>
 
               <div className='flex'>
-                {/* <DropdownBtn label='Buy' />
+                <DropdownBtn label='Buy' />
                 <DropdownBtn label='Exchange' />
                 <DropdownBtn label='Gaming' />
-                <DropdownBtn label='Earn Crypto' /> */}
+                <DropdownBtn label='Earn Crypto' />
               </div>
             </div>
 
@@ -228,7 +228,7 @@ const CoinDetails = ({ coinName, coinSymbol, price }) => {
                   <small className={styles.title}>Market Cap</small>
                 </div>
                 <small>$731,935,983,865</small>
-                <Rate isIncrement={true} rate='0.53%' />
+                <Rate isIncrement={true} rate='0.63%' />
               </div>
 
               <div className={styles.borderLeft}>
@@ -237,7 +237,7 @@ const CoinDetails = ({ coinName, coinSymbol, price }) => {
                     Fully Diluted Market Cap
                   </small>
                 </div>
-                <small>$811,236,224,810</small>
+                <small>$821,258,947,817</small>
                 <Rate isIncrement={true} rate='0.53%' />
               </div>
 
@@ -248,7 +248,7 @@ const CoinDetails = ({ coinName, coinSymbol, price }) => {
                       Volume &nbsp;<small className='coin-symbol'> BTC</small>{' '}
                     </small>
                   </div>
-                  <small>$24,143,176,324</small>
+                  <small>$18,235,176,417</small>
                   <Rate isIncrement={true} rate='0.92%' />
                 </div>
                 <br />
@@ -274,7 +274,7 @@ const CoinDetails = ({ coinName, coinSymbol, price }) => {
                       <small className={styles.title}>Max Supply</small>
                     </div>
                     <div>
-                      <small>21,000,000</small>
+                      <small>19,000,000</small>
                     </div>
                   </div>
                   <div className={styles.flexBetween}>
@@ -282,7 +282,7 @@ const CoinDetails = ({ coinName, coinSymbol, price }) => {
                       <small className={styles.title}>Total Supply</small>
                     </div>
                     <div>
-                      <small>18,983,912</small>
+                      <small>19,886,894</small>
                     </div>
                   </div>
                 </div>

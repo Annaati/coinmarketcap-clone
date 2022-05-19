@@ -1,10 +1,10 @@
 import ChevronDown from '../assets/svg/chevronDown'
 import { useState, useContext, useEffect } from 'react'
-// import { GunContext } from '../context/gunContext'  
-// import { faker } from '@faker-js/faker'
+// import { GunContext } from '../context/gunContext'
+import { faker } from '@faker-js/faker'
 import ChevronUp from '../assets/svg/chevronUp'
-// import ChatCard from './chatCard'
-// import Button from './button'
+import ChatCard from './chatCard'
+import Button from './button'
 import shiba from '../assets/shiba.png'
 import Image from 'next/image'
 
@@ -27,69 +27,27 @@ const Chat = () => {
   const [message, setMessage] = useState('')
   const [bullishValue, setBullishValue] = useState(true)
 
-//   const { gun, getMessages, state } = useContext(GunContext)
+const sendMessage = () => {
 
-//   useEffect(() => {
-//     getMessages('GUN_REF_7')
-//   }, [])
-
-  const formattedMessagesArray = () => {
-    const uniqueArray = state.messages.filter((value, index) => {
-      const _value = JSON.stringify(value)
-
-      return (
-        index ===
-        state.messages.findIndex(obj => {
-          return JSON.stringify(obj) === _value
-        })
-      )
-    })
-    console.log(uniqueArray)
-    return uniqueArray
-  }
-
-  const sendMessage = () => {
-    if (message.trim() === '') return
-
-    // const messagesRef = gun.get('GUN_REF')
-    // const messagesRef = gun.get("GUN_REF_2")
-
-    const messagesRef = gun.get('GUN_REF_7')
-
-    const newMessage = {
-    //   sender: faker.name.findName(),
-      avatar:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3OCSMFIW5fZ3vSN6yGpD-w-6SsL2_ZPA_sw&usqp=CAU',
-      content: message.trim(),
-      isBullish: bullishValue,
-      createdAt: Date().substring(4, 11),
-      messageId: Date.now(),
-    }
-
-    console.log(newMessage)
-
-    messagesRef.set(newMessage)
-    setMessage('')
-  }
+}
 
   return (
     <>
-      <div className={styles.chat}>
-        <div className={styles.flexBetween}>
+     <div className={styles.chat}>
+     <div className={styles.flexBetween}>
           <p className={styles.boldText}>Live Shiba Inu Chat</p>
           <p className='text-[#6188FF]'>See more</p>
         </div>
 
         <br />
-
         <div className={styles.chatContainer}>
-          <div className={styles.flexBetween}>
-            <div className={styles.flexCenter}>
+        <div className={styles.flexBetween}>
+        <div className={styles.flexCenter}>
               <div>
                 <Image alt='' src={shiba} width={70} height={70} />
               </div>
               <div className='text-left mr-10'>
-                <b>CS09-    E</b>
+                <b>CS09-E</b>
                 <p className='text-gray-400'>@CS09-E</p>
               </div>
             </div>
@@ -97,7 +55,9 @@ const Chat = () => {
             <div className={styles.flexCenter}>
               <div
                 className={
-                  !bullishValue ? styles.bullishLabel : styles.activeBullishLabel
+                  !bullishValue
+                    ? styles.bullishLabel
+                    : styles.activeBullishLabel
                 }
                 onClick={() => setBullishValue(true)}
               >
@@ -115,11 +75,12 @@ const Chat = () => {
                 <small className='ml-1'>Bearish</small>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div className='flex'>
+          </div>  
+        </div>
+     </div>
+
+     <div className='flex'>
         <div className='flex items-center text text-green-600'>
           <ChevronUp fill='#22bc64' />
           <small className='ml-1'>Bullish</small>
@@ -137,26 +98,13 @@ const Chat = () => {
         value={message}
         onChange={e => setMessage(e.target.value)}
       />
-
-      {/* <div className={styles.postButtonContainer}>
+      
+      <div className={styles.postButtonContainer}>
         <Button label='Post' onPress={sendMessage} />
-      </div> */}
-      {/* {formattedMessagesArray()
-        .slice(0)
-        .reverse()
-        .map((message, index) => (
-          <ChatCard
-            key={index}
-            sender={message.sender}
-            senderUsername={message.username}
-            senderAvatar='https:/encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3OCSMFIW5fZ3vSN6yGpD-w-6SsL2_ZPA_sw&usqp=CAU'
-            bullish={message.isBullish}
-            timestamp={message.createdAt}
-            content={message.content}
-            likes='2.7K'
-            comments='19K'
-          />
-        ))} */}
+      </div>
+
+      {/* Chat Card & Formated Message */}
+      <ChatCard/>
     </>
   )
 }
