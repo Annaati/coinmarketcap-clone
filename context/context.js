@@ -2,16 +2,16 @@ import { createContext, useState, useEffect } from 'react'
 import { useMoralis } from 'react-moralis'
 
 import { useMoralisQuery } from 'react-moralis'
-// import {
-//   dogeAbi,
-//   daiAbi,
-//   linkAbi,
-//   usdcAbi,
-//   dogeAddress,
-//   linkAddress,
-//   daiAddress,
-//   usdcAddress,
-// } from '../lib/constants'
+import {
+  dogeAbi,
+  daiAbi,
+  linkAbi,
+  usdcAbi,
+  dogeAddress,
+  linkAddress,
+  daiAddress,
+  usdcAddress,
+} from '../lib/constants'
 
 export const CoinMarketContext = createContext()
 
